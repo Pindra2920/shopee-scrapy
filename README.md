@@ -62,6 +62,7 @@ PROXY_PASSWORD
 
 ## Ngrok Url
 
+- Just tunneling the localhost server to the internet so it is of no use.
 - <https://skilled-treefrog-vertically.ngrok-free.app/>
 
 ## Some Resources
