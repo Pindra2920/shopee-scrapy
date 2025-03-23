@@ -48,6 +48,22 @@ PROXY_PASSWORD
     - `shoreId`: The ID of the shop.
   - **Response**: A JSON format with all details.
 
+## Ngrok Setup
+
+1. Download and install ngrok from <https://ngrok.com/download>.
+
+2. Run the following command to expose the local server to the internet:
+
+   ```bash
+   ngrok http 3000
+   ```
+
+3. Copy the forwarding URL and use it to make requests to the API.
+
+## Ngrok Url
+
+- <https://skilled-treefrog-vertically.ngrok-free.app/>
+
 ## Some Resources
 
 - <https://www.linkedin.com/posts/waffensultan_%3F%3F%3F%3F-%3F%3F%3F%3F%3F%3F%3F-%3F%3F-%3F-%3F%3F%3F-activity-7266047405639249920-M4Fw/>
