@@ -37,6 +37,8 @@ const getHeaders = () => ({
     'content-type': 'application/json',
     'user-agent': `Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36`,
     'x-api-source': 'pc',
+    'x-csrftoken':'NSodsFBWKpDOnGBWYScpPMQYBXHK0THS',
+    'x-requested-with': 'XMLHttpRequest',
     'x-shopee-language': 'zh-Hant',
     'x-sz-sdk-version': '1.12.18'
 });
@@ -82,17 +84,17 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.get('/shopee', async (req: Request, res: Response) : Promise<any> => {
-    const { storeId, itemId } = req.query;
+    const { shopId, itemId } = req.query;
 
-    if (!storeId || !itemId) {
+    if (!shopId || !itemId) {
         return res.status(400).json({
-            error: 'Missing required parameters: storeId and itemId'
+            error: 'Missing required parameters: shopId and itemId'
         });
     }
 
     try {
         const data = await scrapeShopee(
-            storeId as string,
+            shopId as string,
             itemId as string
         );
         res.json(data);

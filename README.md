@@ -45,7 +45,7 @@ PROXY_PASSWORD
   - **Method**: `GET`
   - **Query Parameters**:
     - `itemId`: The ID of the product.
-    - `shoreId`: The ID of the shop.
+    - `shopId`: The ID of the shop.
   - **Response**: A JSON format with all details.
 
 ## Ngrok Setup
