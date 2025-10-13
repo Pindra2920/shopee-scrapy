@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopee Product Scraper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🛍️ Shopee Product Scraper</h1>
+            <div class="stats">
+                <span id="total-products">Loading...</span>
+                <span id="loading-indicator" class="loading">⏳</span>
+            </div>
+        </header>
+
+        <!-- Collection Selector -->
+        <div class="collection-selector">
+            <h3>Select Collection:</h3>
+            <div class="collection-buttons">
+                <!-- <button class="collection-btn active" data-collection="8835424">獨家優惠立即購</button>
+                <button class="collection-btn" data-collection="8835490">或任一0元免費禮物兌換</button>
+                <button class="collection-btn" data-collection="5086396">蝦皮直營 | 官方直營當日到</button>
+                <button class="collection-btn" data-collection="6182674">隔日到貨 | 今天訂明天到</button> -->
+                <button class="collection-btn" data-collection="4206320">隔日到貨 | 今天訂明天到</button>
+                <button class="collection-btn" data-collection="10982344">隔日到貨 | 今天訂明天到</button>
+                <button class="collection-btn" data-collection="6132194">隔日到貨 | 今天訂明天到</button>
+                <button class="collection-btn" data-collection="8864422">隔日到貨 | 今天訂明天到</button>
+                <button class="collection-btn" data-collection="5217394">隔日到貨 | 今天訂明天到</button>
+            </div>
+        </div>
+
+        <!-- Search and Filter Bar -->
+        <div class="search-bar">
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search products..." />
+                <button id="search-btn">🔍</button>
+            </div>
+            <div class="filter-container">
+                <select id="sort-select">
+                    <option value="default">Sort by</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Rating</option>
+                    <option value="name">Name A-Z</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="error-message hidden">
+            <p>❌ Failed to load products. Please try again later.</p>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="products-grid" class="products-grid">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading products...</p>
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="pagination hidden">
+            <button id="prev-btn" class="pagination-btn">← Previous</button>
+            <div id="page-numbers" class="page-numbers">
+                <!-- Page numbers will be dynamically inserted here -->
+            </div>
+            <button id="next-btn" class="pagination-btn">Next →</button>
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="empty-state hidden">
+            <div class="empty-icon">📦</div>
+            <h3>No products found</h3>
+            <p>Try adjusting your search or filters</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
