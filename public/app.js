@@ -19,6 +19,7 @@ const prevBtn = document.getElementById('prev-btn');
 const nextBtn = document.getElementById('next-btn');
 const pageNumbers = document.getElementById('page-numbers');
 const collectionButtons = document.querySelectorAll('.collection-btn');
+const downloadJsonBtn = document.getElementById('download-json-btn');
 
 // Initialize the app
 document.addEventListener('DOMContentLoaded', () => {
@@ -61,6 +62,8 @@ function setupEventListeners() {
             updatePagination();
         }
     });
+    
+    downloadJsonBtn.addEventListener('click', downloadAllProductsAsJson);
 }
 
 // Select collection and load products
@@ -332,4 +335,36 @@ function showEmptyState() {
 
 function hideEmptyState() {
     emptyState.classList.add('hidden');
+}
+
+// Download all products as JSON
+function downloadAllProductsAsJson() {
+    if (allProducts.length === 0) {
+        alert('No products to download. Please load products first.');
+        return;
+    }
+    
+    // Create JSON data with metadata
+    const jsonData = {
+        collection_id: currentCollectionId,
+        total_products: allProducts.length,
+        download_date: new Date().toISOString(),
+        products: allProducts
+    };
+    
+    // Convert to JSON string with proper formatting
+    const jsonString = JSON.stringify(jsonData, null, 2);
+    
+    // Create blob and download
+    const blob = new Blob([jsonString], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    
+    // Create download link
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `shopee_products_collection_${currentCollectionId}_${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
 }
